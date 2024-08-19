@@ -1,6 +1,11 @@
+import { useState } from "react";
 export default function Login() {
-  return (
-    <form>
+  function handleSubmit(event){
+    console.log('Submitted')
+    event.preventDefault();
+  }
+  return ( 
+    <form onSubmit={handleSubmit}>
       <h2>Login</h2>
 
       <div className="control-row">
@@ -17,7 +22,7 @@ export default function Login() {
 
       <p className="form-actions">
         <button className="button button-flat">Reset</button>
-        <button className="button">Login</button>
+        <button className="button" >Login</button>
       </p>
     </form>
   );
