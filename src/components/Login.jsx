@@ -1,28 +1,66 @@
 import { useState } from "react";
 export default function Login() {
-  function handleSubmit(event){
-    console.log('Submitted')
+  // const [email,setEmail] = useState('');
+  // const [password,setPassword] = useState('');
+  const [enteredValues, setEnteredValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  function handleSubmit(event) {
+    console.log("Submitted");
     event.preventDefault();
+    console.log(enteredValues);
+ 
   }
-  return ( 
+
+  // function handleEmail(event){
+
+  //   setEmail(event.target.value);
+  // }
+  // function handlePassword(event){
+  //   setPassword(event.target.value)
+  // }
+
+  function handleInputChange(identifier, value) {
+    setEnteredValues((prevValues) => ({
+      ...prevValues,
+      [identifier]: value,
+    }));
+  }
+  return (
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
 
       <div className="control-row">
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
-          <input id="email" type="email" name="email" />
+          <input
+            id="email"
+            type="email"
+            name="email"
+            onChange={(event) => handleInputChange("email", event.target.value)}
+            value={enteredValues.email}
+          />
         </div>
 
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" />
+          <input
+            id="password"
+            type="password"
+            name="password"
+            onChange={(event) =>
+              handleInputChange("password", event.target.value)
+            }
+            value={enteredValues.password}
+          />
         </div>
       </div>
 
       <p className="form-actions">
         <button className="button button-flat">Reset</button>
-        <button className="button" >Login</button>
+        <button className="button">Login</button>
       </p>
     </form>
   );
