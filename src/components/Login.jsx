@@ -6,8 +6,19 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [edit,setEdit ] = useState({
+    email:false,
+    password:false
+  })
 
-  const emailIsInvalid = !enteredValues.email.includes("@") && enteredValues.email.length>3;
+  const emailIsInvalid = edit.email && !enteredValues.email.includes("@") ;
+
+  function handleInputBlur(identifier){
+    setEdit(prevEdit=>({
+      ...prevEdit,
+      [identifier]:true // computed property names
+    }))
+  }
 
   function handleSubmit(event) {
     console.log("Submitted");
@@ -28,6 +39,10 @@ export default function Login() {
       ...prevValues,
       [identifier]: value,
     }));
+    setEdit(prevEdit=> ({
+      ...prevEdit,
+      [identifier]:false
+    }))
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -40,6 +55,7 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
+            onBlur={()=>handleInputBlur('email')}
             onChange={(event) => handleInputChange("email", event.target.value)}
             value={enteredValues.email}
           />
