@@ -1,56 +1,37 @@
-import { useState } from "react";
 import Input from "./Input";
-import { isEmail, isNotEmpty, hasMinLength } from "../util/validation";
+import { isEmail, hasMinLength, isNotEmpty } from "../util/validation";
+import { useInput } from "../hooks/useInput";
+
 export default function Login() {
-  // const [email,setEmail] = useState('');
-  // const [password,setPassword] = useState('');
-  const [enteredValues, setEnteredValues] = useState({
-    email: "",
-    password: "",
-  });
-  const [edit, setEdit] = useState({
-    email: false,
-    password: false,
-  });
+  const {
+    value: emailValue,
+    handleInputChange: handleEmailChange,
+    handleInputBlur: handleEmailBlur,
+    hasError: emailHasError,
+    reset: resetEmail,
+  } = useInput("", (value) => isEmail(value) && isNotEmpty(value));
 
-  const emailIsInvalid =
-    edit.email &&
-    !isEmail(enteredValues.email);
-
-  const passwordIsInvalid =
-    edit.password && !hasMinLength(enteredValues.password, 6);
-
-  function handleInputBlur(identifier) {
-    setEdit((prevEdit) => ({
-      ...prevEdit,
-      [identifier]: true, // computed property names
-    }));
-  }
+  const {
+    value: passwordValue,
+    handleInputChange: handlePasswordChange,
+    handleInputBlur: handlePasswordBlur,
+    hasError: passwordHasError,
+    reset: resetPassword,
+  } = useInput("", (value) => hasMinLength(value, 6));
 
   function handleSubmit(event) {
-    console.log("Submitted");
     event.preventDefault();
-    console.log(enteredValues);
+    if (emailHasError || passwordHasError) {
+      return;
+    }
+    console.log("Submitted:", emailValue, passwordValue);
   }
 
-  // function handleEmail(event){
-
-  //   setEmail(event.target.value);
-  // }
-  // function handlePassword(event){
-  //   setPassword(event.target.value)
-  // }
-
-  function handleInputChange(identifier, value) {
-    setEnteredValues((prevValues) => ({
-      ...prevValues,
-      [identifier]: value,
-    }));
-    setEdit((prevEdit) => ({
-      ...prevEdit,
-      [identifier]: false,
-    }));
+  function handleReset() {
+    resetEmail();
+    resetPassword();
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
@@ -62,10 +43,10 @@ export default function Login() {
           type="email"
           name="email"
           required
-          onBlur={() => handleInputBlur("email")}
-          onChange={(event) => handleInputChange("email", event.target.value)}
-          value={enteredValues.email}
-          error={emailIsInvalid && "Please enter a valid email address!"}
+          onBlur={handleEmailBlur}
+          onChange={handleEmailChange}
+          value={emailValue}
+          error={emailHasError && "Please enter a valid email address!"}
         />
         <Input
           label="Password"
@@ -73,18 +54,18 @@ export default function Login() {
           type="password"
           name="password"
           required
-          onBlur={() => handleInputBlur("password")}
-          onChange={(event) =>
-            handleInputChange("password", event.target.value)
-          }
-          value={enteredValues.password}
-          error={passwordIsInvalid && "Please enter a password greater than 6!"}
+          onBlur={handlePasswordBlur}
+          onChange={handlePasswordChange}
+          value={passwordValue}
+          error={passwordHasError && "Please enter a password greater than 6 characters!"}
         />
       </div>
 
       <p className="form-actions">
-        <button className="button button-flat">Reset</button>
-        <button className="button">Login</button>
+        <button type="button" className="button button-flat" onClick={handleReset}>
+          Reset
+        </button>
+        <button type="submit" className="button">Login</button>
       </p>
     </form>
   );
