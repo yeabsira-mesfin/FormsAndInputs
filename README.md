@@ -10,7 +10,6 @@ This is a simple React application that demonstrates user authentication with lo
 
 ## Project Structure
 
-.
 ├── src
 
 │ ├── components
