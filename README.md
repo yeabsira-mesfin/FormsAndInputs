@@ -2,7 +2,7 @@
 
 This is a simple React application that demonstrates user authentication with login functionality. The project consists of components like `Login`, `Header`, and more (like `Signup`, `RefLogin`, etc.), which are designed to be reusable and modular.
 
-## Features
+ Features
 - **Login**: A login form with validation for email and password inputs.
 - **Reusable Components**: Components like `Header` and `Input` are structured for reuse across the application.
 - **Modular Structure**: Components are stored in separate files for better maintainability.
