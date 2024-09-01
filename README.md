@@ -1,4 +1,4 @@
-# Authentication App
+# Demo Authentication App
 
 This is a simple React application that demonstrates user authentication with login functionality. The project consists of components like `Login`, `Header`, and more (like `Signup`, `RefLogin`, etc.), which are designed to be reusable and modular.
 
