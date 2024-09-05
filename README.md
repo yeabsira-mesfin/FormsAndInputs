@@ -4,7 +4,7 @@ This is a simple React application that demonstrates user authentication with lo
 
  Features
 - **Login*: A login form with validation for email and password inputs.
-- **Reusable Components**: Components like `Header` and `Input` are structured for reuse across the application.
+- **Reusable Components**: Components `Header` and `Input` are structured for reuse across the application.
 - **Modular Structure**: Components are stored in separate files for better maintainability.
 - **Form Validation**: The form includes validation for the email and password fields using custom hooks and utility functions.
 
