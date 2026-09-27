@@ -2,7 +2,7 @@
 
 ### AI Security Evaluation Lab
 
-[![Quality gates](https://github.com/yeabsira-mesfin/FormsAndInputs/actions/workflows/secure-ai.yml/badge.svg)](https://github.com/yeabsira-mesfin/FormsAndInputs/actions/workflows/secure-ai.yml)
+[![Quality gates](https://github.com/yeabsira-mesfin/probelab-ai-security/actions/workflows/secure-ai.yml/badge.svg)](https://github.com/yeabsira-mesfin/probelab-ai-security/actions/workflows/secure-ai.yml)
 
 A runnable security engineering portfolio project by **Yeabsira Mesfin**, built with Python, FastAPI, React, TypeScript, and SQLite.
 
@@ -126,9 +126,9 @@ Read the [threat model](docs/THREAT-MODEL.md). This is a local portfolio demonst
 
 ## Related projects
 
-- [Vaultwise](https://github.com/yeabsira-mesfin/HYBZ_Website): secure knowledge retrieval.
-- [ProbeLab](https://github.com/yeabsira-mesfin/FormsAndInputs): policy evaluations and API integration checks.
-- [Traceguard](https://github.com/yeabsira-mesfin/AdvancedCounter): constrained incident investigation.
+- [Vaultwise](https://github.com/yeabsira-mesfin/vaultwise-secure-knowledge): secure knowledge retrieval.
+- [ProbeLab](https://github.com/yeabsira-mesfin/probelab-ai-security): policy evaluations and API integration checks.
+- [Traceguard](https://github.com/yeabsira-mesfin/incident-investigation-agent): constrained incident investigation.
 
 ## Author
 
