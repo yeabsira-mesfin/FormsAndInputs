@@ -1,0 +1,49 @@
+{
+  "target": "local-vaultwise-http-api",
+  "checks": [
+    {
+      "check": "tenant_isolation",
+      "passed": true
+    },
+    {
+      "check": "authorized_answer_has_citations",
+      "passed": true
+    },
+    {
+      "check": "role_isolation",
+      "passed": true
+    },
+    {
+      "check": "forged_identity_rejected",
+      "passed": true
+    },
+    {
+      "check": "cross_tenant_delete_denied",
+      "passed": true
+    },
+    {
+      "check": "viewer_upload_denied",
+      "passed": true
+    },
+    {
+      "check": "known_injection_flagged",
+      "passed": true
+    },
+    {
+      "check": "known_poisoned_context_excluded",
+      "passed": true
+    },
+    {
+      "check": "untrusted_origin_denied",
+      "passed": true
+    },
+    {
+      "check": "logout_revokes_access",
+      "passed": true
+    }
+  ],
+  "passed": 10,
+  "total": 10,
+  "duration_ms": 407.78,
+  "limitations": "Integration checks, not an LLM robustness score. Uses synthetic seeded accounts."
+}
